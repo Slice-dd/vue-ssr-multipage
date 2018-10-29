@@ -17,7 +17,6 @@ export default {
   },
   computed: {
     recommendPoetryData() {
-      console.log(this.$store.state.recommendPoetry);
       return this.$store.state.recommendPoetry
     }
   }

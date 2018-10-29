@@ -15,7 +15,7 @@
                 <span>今日推荐</span>
               </template>
               
-              <el-menu-item index="/poetry">诗词句116666661</el-menu-item>
+              <el-menu-item index="/poetry">诗词句</el-menu-item>
 
               <el-menu-item index="/poetry/recommendPoetry">诗词</el-menu-item>
             </el-submenu>
@@ -24,7 +24,11 @@
               <i class="el-icon-document"></i>
               <span>搜一搜</span>
             </el-menu-item>
+
+           
+
           </el-menu>
+          
         </el-aside>
 
         <el-main>

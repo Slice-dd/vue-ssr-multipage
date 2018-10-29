@@ -53,7 +53,7 @@ if (isProd) {
     // to automatically infer preload/prefetch links and directly add <script>
     // tags for any async chunks used during render, avoiding waterfall requests.
     const clientManifest = require(`./dist/${e}-ssr-client-manifest.json`)
-    renderer[e]= createRenderer(bundle, {
+    renderer[e] = createRenderer(bundle, {
       template,
       clientManifest
     })
@@ -64,7 +64,7 @@ if (isProd) {
   // In development: setup the dev server with watch and hot-reload,
   // and create a new renderer on bundle / index template update.
   const setupDevServer = require('./build/setup-dev-server')
-  
+
   Object.keys(entry).forEach((e, index) => {
 
     readyPromise[e] = setupDevServer(
@@ -136,29 +136,25 @@ function render(req, res, module) {
   })
 }
 
+// entries
+const entryArr = Object.keys(entry)
 
 if (isProd) {
   app.get('*', (req, res) => {
 
-    const entryArr = Object.keys(entry)
-
     let module
 
     entryArr.forEach(item => {
-      if(req.url.includes(item)) {
+      if (req.url.includes(item)) {
         module = item
       }
     })
 
     return render(req, res, module)
-   
+
   })
-}
 
-if (!isProd) {
-
-  const entryArr = Object.keys(entry)
-
+} else {
   app.get('*', (req, res) => {
 
     let module
@@ -169,17 +165,12 @@ if (!isProd) {
       }
     })
 
-    console.log('module: ');
-    console.log(module);
-
     readyPromise[module].then(r => {
       return render(req, res, module)
     })
-    
+
   })
-
 }
-
 
 const port = process.env.PORT || 8080
 app.listen(port, () => {

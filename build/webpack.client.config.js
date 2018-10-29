@@ -87,6 +87,4 @@ const clientPlugin = Object.keys(entrys).map(entry => {
  
 }) 
 
-console.log(clientPlugin);
-
 module.exports = clientPlugin

@@ -25,7 +25,6 @@ export default {
   },
   computed: {
     signleData() {
-      console.log(this.$store.state.singlePoetry);
       return this.$store.state.singlePoetry;
     }
   },

@@ -161,8 +161,6 @@ export default {
 
       let { content } = row;
 
-      console.log(content.split('|'))
-
       content = content.split('|').map(item => {
         return `<p>${item}</p>`
       })
