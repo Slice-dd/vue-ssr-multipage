@@ -2,9 +2,9 @@
   <div id="app">
     <el-container style="height: 100%">
       <el-header class="page-header">
-        <Header></Header>
+        <Headers></Headers>
       </el-header>
-
+  
       <el-container class="page-content">
         <el-aside width="200px" class="sider">
           <el-menu :router="true" default-active="/poetry" class="el-menu-vertical-demo" background-color="#dae0ea" text-color="#7480a0" active-text-color="#3a8be6" :collapse="false">
@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Headers from "./components/Headers.vue";
 export default {
   components: {
-    Header
+    Headers
   }
 };
 </script>

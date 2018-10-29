@@ -9,8 +9,8 @@ Vue.use(Vuex)
 export function createStore () {
   return new Vuex.Store({
     state: {
-      singlePoetry: {}, // signle poetry default data
-      recommendPoetry: {} // recommend poetry default data
+      singlePoetry: [], // signle poetry default data
+      recommendPoetry: [] // recommend poetry default data
     },
     actions,
     mutations,

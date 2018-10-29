@@ -2,16 +2,16 @@
   <div id="app">
     <el-container style="height: 100%">
       <el-header class="page-header">
-        <Header></Header>
+        <Headers></Headers>
       </el-header>
 
       <el-container class="page-content">
         <el-aside width="200px" class="sider">
-          <el-menu :router="true" default-active="/amuse" class="el-menu-vertical-demo" background-color="#dae0ea" text-color="#7480a0" active-text-color="#3a8be6" :collapse="false">
-
+          <el-menu :router="true" default-active="/amuses" class="el-menu-vertical-demo" background-color="#dae0ea" text-color="#7480a0" active-text-color="#3a8be6" :collapse="false">
+            
             <el-menu-item index="/amuses">
               <i class="el-icon-document"></i>
-              <span>搜一搜</span>
+              <span>热门小说</span>
             </el-menu-item>
 
             <el-menu-item index="/amuses/recommendPoetry">
@@ -33,12 +33,12 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue"
+import Headers from "./components/Headers.vue"
 
 
 export default {
   components: {
-    Header
+    Headers
   }
 };
 </script>

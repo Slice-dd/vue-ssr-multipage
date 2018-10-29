@@ -11,6 +11,7 @@ const entrys = entryPath('server')
 const serverPlugin = Object.keys(entrys).map(entry => {
   return merge(base, {
     target: 'node',
+    name: entry,
     devtool: 'source-map',
     entry: entrys[entry],
     output: {

@@ -156,15 +156,15 @@ module.exports = function setupDevServer (entry, index, app, templatePath, cb) {
   })
 
   var HMRPath = '/__webpack_hmr_' + entry;
-
+  
   // modify client config to work with hot middleware
-  clientConfig[index].entry[entry] = ['webpack-hot-middleware/client', clientConfig[index].entry[[entry]]]
+  clientConfig[index].entry[entry] = [`webpack-hot-middleware/client?path=${HMRPath}&name=${entry}`, clientConfig[index].entry[[entry]]]
   clientConfig[index].output.filename = '[name].js'
   clientConfig[index].plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   )
-    
+
   // dev middleware
   const clientCompiler = webpack(clientConfig[index])
   const devMiddleware = require('webpack-dev-middleware')(clientCompiler, {
@@ -188,7 +188,7 @@ module.exports = function setupDevServer (entry, index, app, templatePath, cb) {
   })
 
   // hot middleware
-  app.use(require('webpack-hot-middleware')(clientCompiler, { heartbeat: 5000 }))
+  app.use(require('webpack-hot-middleware')(clientCompiler, { heartbeat: 5000, path: HMRPath }))
 
   // watch and update server renderer
   const serverCompiler = webpack(serverConfig[index])

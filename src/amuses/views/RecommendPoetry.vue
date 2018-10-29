@@ -1,15 +1,10 @@
 <template>
   <div class="signle-poetry">
-    <h1>个性签名</h1>
-  
+    <h1>个性网名</h1>
+    
     <div class="poetry-container">
-      <div class="item title">
-        <span>{{recommendPoetryData.title}}</span>
-        <span class="author">{{recommendPoetryData.authors}}</span>
-      </div>
-        
-      <div class="item" v-for="poetry in poetryContent" :key="poetry">
-        <span>{{poetry}}</span>
+      <div class="item" v-for="poetry in recommendPoetryData" :key="poetry.name">
+        <span>{{poetry.femalename}}</span>
       </div>
     </div>
   </div>
@@ -18,18 +13,12 @@
 <script>
 export default {
   asyncData({ store, router }) {
-    return store.dispatch("FETCH_RECOMMENDPOETRY")
+    return store.dispatch("FETCH_RECOMMENDPOETRY", {page: 1})
   },
   computed: {
     recommendPoetryData() {
+      console.log(this.$store.state.recommendPoetry);
       return this.$store.state.recommendPoetry
-    },
-    poetryContent() {
-      const content = this.recommendPoetryData.content
-      if(content) {
-        return content.split('|')
-      }
-      return []
     }
   }
 };

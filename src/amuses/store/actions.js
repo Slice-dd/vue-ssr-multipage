@@ -13,15 +13,15 @@ export default {
   // fetch signlepoetry
   FETCH_SINGLEPOETRY: ({ commit, dispatch, state }) => {
     return singlePoetry().then(res => {
-      commit('SET_SIGNLEPOETRY', { single: res.data.result })
+      commit('SET_SIGNLEPOETRY', { single: res.data.data })
     })
   },
   
   // fetch recommendPoetry
-  FETCH_RECOMMENDPOETRY: ({commit, dispatch, state}) => {
-    return recommendPoetry().then(res => {
+  FETCH_RECOMMENDPOETRY: ({commit, dispatch, state}, {page}) => {
+    return recommendPoetry(page).then(res => {
       if(res.data.code && res.data.code === 200) {
-        commit('SET_RECOMMENDPOETRY', { recommendPoetry: res.data.result })
+        commit('SET_RECOMMENDPOETRY', { recommendPoetry: res.data.data })
       }
     })
   },

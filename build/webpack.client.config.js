@@ -16,6 +16,7 @@ const clientPlugin = Object.keys(entrys).map(entry => {
   
   const config = merge(base, {
     entry: en,
+    name: entry,
     resolve: {
       alias: {
         // 'create-api': './create-api-client.js'
